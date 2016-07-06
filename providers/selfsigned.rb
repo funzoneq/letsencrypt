@@ -25,7 +25,7 @@ action :create do
     path      new_resource.key
     owner     new_resource.owner
     group     new_resource.group
-    mode      00400
+    mode      0o0400
     content   OpenSSL::PKey::RSA.new(2048).to_pem
     sensitive true
     action    :create_if_missing
@@ -35,7 +35,7 @@ action :create do
     path    new_resource.crt
     owner   new_resource.owner
     group   new_resource.group
-    mode    00644
+    mode    0o0644
     content lazy { self_signed_cert(new_resource.cn, OpenSSL::PKey::RSA.new(::File.read(new_resource.key))).to_pem }
     action  :create_if_missing
   end
@@ -44,7 +44,7 @@ action :create do
     path    new_resource.chain
     owner   new_resource.owner
     group   new_resource.group
-    mode    00644
+    mode    0o0644
     content lazy { self_signed_cert(new_resource.cn, OpenSSL::PKey::RSA.new(::File.read(new_resource.key))).to_pem }
     not_if  { new_resource.chain.nil? }
     action  :create_if_missing

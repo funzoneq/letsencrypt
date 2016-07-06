@@ -20,7 +20,7 @@
 
 chef_gem 'acme-client' do
   action :install
-  version '0.2.4'
+  version node['letsencrypt']['acme_client_version']
   compile_time true if respond_to?(:compile_time)
 end
 

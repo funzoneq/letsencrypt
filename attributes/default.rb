@@ -18,10 +18,10 @@
 # limitations under the License.
 #
 
-default['letsencrypt']['contact']     = []
-default['letsencrypt']['endpoint']    = 'https://acme-v01.api.letsencrypt.org'
-default['letsencrypt']['renew']       = 30
-default['letsencrypt']['source_ips']  = ['66.133.109.36']
+default['letsencrypt']['contact']             = []
+default['letsencrypt']['endpoint']            = 'https://acme-v01.api.letsencrypt.org'
+default['letsencrypt']['renew']               = 30
+default['letsencrypt']['source_ips']          = ['66.133.109.36']
 
-default['letsencrypt']['private_key'] = nil
-
+default['letsencrypt']['private_key']         = nil
+default['letsencrypt']['acme_client_version'] = '0.3.6'

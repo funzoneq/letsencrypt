@@ -33,7 +33,7 @@ action :create do
     path      new_resource.key
     owner     new_resource.owner
     group     new_resource.group
-    mode      00400
+    mode      0o0400
     content   OpenSSL::PKey::RSA.new(2048).to_pem
     sensitive true
     action    :nothing
@@ -69,14 +69,14 @@ action :create do
           tokenroot = directory ::File.dirname(tokenpath) do
             owner     new_resource.owner
             group     new_resource.group
-            mode      00755
+            mode      0o0755
             recursive true
           end
 
           auth_file = file tokenpath do
             owner   new_resource.owner
             group   new_resource.group
-            mode    00644
+            mode    0o0644
             content authz.http01.file_content
           end
           validation = acme_validate_immediately(authz, 'http01', tokenroot, auth_file)
@@ -106,7 +106,7 @@ action :create do
               f.owner   new_resource.owner
               f.group   new_resource.group
               f.content new_resource.crt.nil? ? newcert.fullchain_to_pem : newcert.to_pem
-              f.mode    00644
+              f.mode    0o0644
             end.run_action :create
 
             Chef::Resource::File.new("#{new_resource.cn} SSL new chain", run_context).tap do |f|
@@ -115,7 +115,7 @@ action :create do
               f.group   new_resource.group
               f.content newcert.chain_to_pem
               f.not_if  { new_resource.chain.nil? }
-              f.mode    00644
+              f.mode    0o0644
             end.run_action :create
           end
         else
