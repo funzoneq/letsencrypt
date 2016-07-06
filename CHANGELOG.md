@@ -3,6 +3,21 @@ letsencrypt changelog
 
 This file is used to list changes made in each version of the letsencrypt cookbook.
 
+1.0.0
+-----
+seccubus - Make production the default end-point
+seccubus - Add apache2 example
+thoutenbos - Fix for chef-client v11 compatibility
+thoutenbos - Fix integration tests
+
+0.1.7
+-----
+- glaszig - Use chef api inside ruby_block
+- arr-dev - Document `node['letsencrypt']['private_key']`
+
+0.1.6
+-----
+- funzoneq - Add verification IP for firewalling purposes
 - acoulton - fail chef run if certificate not issued, unless `ignore_failure` resource attribute set
 
 0.1.5
