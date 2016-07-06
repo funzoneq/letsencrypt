@@ -14,6 +14,7 @@ Attributes
 * `node['letsencrypt']['renew']` - Days before the certificate expires at which the certificate will be renewed, default `30`.
 * `node['letsencrypt']['source_ips']` - IP addresses used by letsencrypt to verify the TLS certificates, it will change over time. This attribute is for firewall purposes. Allow these IPs for HTTP (tcp/80).
 * `node['letsencrypt']['private_key']` - Private key content of registered account.
+* `node['letsencrypt']['acme_client_version']` - Version of the acme-client gem to use.
 
 Recipes
 -------
